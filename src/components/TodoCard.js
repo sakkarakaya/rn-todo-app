@@ -1,10 +1,12 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import { View, Text } from 'react-native';
 
-const TodoCard = (props) => {
+import {todoCard} from '../style'
+
+const TodoCard = ({data}) => {
     return (
-        <View>
-            <Text>{props.data.text}</Text>
+        <View style={todoCard.container}>
+            <Text style={todoCard.cardText}>{data.text}</Text>
         </View>
     )
 }

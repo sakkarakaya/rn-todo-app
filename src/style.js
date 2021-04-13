@@ -20,6 +20,13 @@ const main = StyleSheet.create({
     counterText:{
         fontSize: 35,
         color: '#ff9b31'
+    },
+    nothing: {
+        backgroundColor: '#ffb74d',
+        margin: 5,
+        padding: 5,
+        borderRadius: 5,
+        fontSize: 19
     }
 })
 
@@ -51,4 +58,16 @@ const todoInput = StyleSheet.create({
     }
 })
 
-export {main, todoInput};
+const todoCard = StyleSheet.create({
+    container:{
+        backgroundColor: '#ffb74d',
+        margin: 5,
+        padding: 5,
+        borderRadius: 5
+    },
+    cardText:{
+        fontSize: 19
+    }
+})
+
+export {main, todoInput, todoCard};

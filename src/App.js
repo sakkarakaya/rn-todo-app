@@ -42,11 +42,13 @@ const App = () => {
 
         <View style={main.banner}>
           <Text style={main.todoText}>TODO</Text>
-          <Text style={main.counterText}>10</Text>
+          <Text style={main.counterText}>{list.length}</Text>
         </View>
         <FlatList
           data={list}
           renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          ListEmptyComponent={() => <Text style={main.nothing}>nothing to do...</Text>}
         />
         <TodoInput onEnter={t => addTodo(t)} />
 
