@@ -17,13 +17,16 @@ const App = () => {
   const [list, setList] = useState([]);
 
   const renderItem = ({ item }) => (
-    <TodoCard data={item}/> 
+    <TodoCard 
+    data={item}
+    onDone={(i) => doneTodo(i) }
+    onRemove={() => removeTodo(item.id)}
+    /> 
 );
     
  
 
   function addTodo(text){
-
     const element = {
       id: list.length,
       text,
@@ -33,7 +36,20 @@ const App = () => {
     myArray.push(element);
     console.log(myArray)
     setList(myArray)
-    
+  }
+
+  function doneTodo(i){
+      const newArray = [...list];
+      const myIndex = newArray.findIndex(index => index.id == i );
+      newArray[myIndex].isDone = !newArray[myIndex].isDone;
+      setList(newArray)
+  }
+
+  function removeTodo(i){
+    const removedArray = [...list];
+    const myIndex = removedArray.findIndex(index => index.id == i );
+    removedArray.splice(myIndex, 1)
+    setList(removedArray)
   }
   
   return (
@@ -42,7 +58,7 @@ const App = () => {
 
         <View style={main.banner}>
           <Text style={main.todoText}>TODO</Text>
-          <Text style={main.counterText}>{list.length}</Text>
+          <Text style={main.counterText}>{list.filter(i => i.isDone == false).length}</Text>
         </View>
         <FlatList
           data={list}

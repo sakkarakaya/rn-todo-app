@@ -1,13 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import {todoCard} from '../style'
 
-const TodoCard = ({data}) => {
+const TodoCard = (props) => {
     return (
-        <View style={todoCard.container}>
-            <Text style={todoCard.cardText}>{data.text}</Text>
-        </View>
+        <TouchableOpacity 
+        style={todoCard.container}
+        onPress={() => props.onDone(props.data.id)}
+        onLongPress={() => props.onRemove()}
+        >
+            <Text style={[todoCard.cardText, 
+                {textDecorationLine: props.data.isDone ? 'line-through' : null}
+                ]}
+            >{props.data.text}</Text>
+        </TouchableOpacity>
     )
 }
 

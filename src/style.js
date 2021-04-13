@@ -26,7 +26,7 @@ const main = StyleSheet.create({
         margin: 5,
         padding: 5,
         borderRadius: 5,
-        fontSize: 19
+        fontSize: 18
     }
 })
 
@@ -66,7 +66,8 @@ const todoCard = StyleSheet.create({
         borderRadius: 5
     },
     cardText:{
-        fontSize: 19
+        fontSize: 18,
+        
     }
 })
 
